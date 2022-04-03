@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle&family=Nunito:wght@300;400;700&family=Supermercado+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  text-transform: uppercase;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --thickness: 10px;
+  --height: 50px;
+}
+
+#clock {
+  font-size: 2rem;
+  background: -webkit-linear-gradient(cadetblue, lightcoral);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#date {
+  color: crimson;
+}
+
+.loader {
+  border: var(--thickness) solid #f3f3f3; /* Light grey */
+  border-top: var(--thickness) solid royalblue;
+  border-bottom: var(--thickness) solid royalblue;
+  border-radius: 50%;
+  width: var(--height);
+  height: var(--height);
+  animation: spin 5s linear infinite;
+}
+
+.labelfield,.inputfield{
+  font-size: 1.2rem;
+}
+
+.text,.timeLeft{
+  font-size: 0.5rem;
+}
+
+.labelfield{
+  min-width: 100px;
+  text-align: center;
+}
+
+.inputfield{
+  width: 200px;
+}
+
+.btn{
+  color: white;
+}
+
+.textfield{
+  min-height: 50px;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

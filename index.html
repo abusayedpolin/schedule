@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container text-center">
+      <nav class="bg-light row">
+        <div class="col-3 my-auto">
+          <div class="nav-item loader"></div>
+        </div>
+        <div class="p-3 nav-item col-6">
+          <h1 class="m-0 fs-3 fw-bold">exam schedule</h1>
+        </div>
+        <div class="col-3 my-auto m-0">
+          <button class="btn bg-primary m-0">log in</button>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="border my-5 p-4">
+        <div id="clock" class="fw-bold text-center"></div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <form action="" class="row g-4 p-1">
+        <div class="p-0 col-sm-12 col-md-12 col-lg-4">
+          <label class="labelfield" for="name">name :</label>
+          <input
+            class="inputfield"
+            id="getSub"
+            type="text"
+            name=""
+            placeholder="subject name"
+          />
+        </div>
+        <div class="p-0 col-sm-12 col-md-12 col-lg-4">
+          <label class="labelfield" for="date">DATE :</label>
+          <input class="inputfield" id="getDate" type="date" name="" />
+        </div>
+        <div class="p-0 col-sm-12 col-md-12 col-lg-4">
+          <label class="labelfield" for="appt-time">TIME : </label>
+          <input
+            class="inputfield"
+            id="getTime"
+            type="time"
+            name=""
+            value="15:00"
+          />
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <input
+            class="btn border bg-primary fw-bold"
+            type="submit"
+            value="Submit"
+            id="sub"
+          />
+          <div id="wrong" class="mt-3"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container">
+      <div class="row my-4 text-center">
+        <div id="" class="textfield col-4 border">subject</div>
+        <div id="" class="textfield col-4 border">date</div>
+        <div id="" class="textfield col-4 border">time left</div>
+      </div>
+      <div class="row my-4 text-center">
+        <div
+          id="topic"
+          class="my-auto textfield col-4 border align-center"
+        ></div>
+        <div id="text" class="textfield col-4 border"></div>
+        <div id="timeLeft" class="textfield col-4 border"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
