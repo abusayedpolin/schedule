@@ -12,6 +12,10 @@
   --height: 50px;
 }
 
+body{
+  background-color: aliceblue;
+}
+
 #clock {
   font-size: 2rem;
   background: -webkit-linear-gradient(cadetblue, lightcoral);
@@ -31,6 +35,10 @@
   width: var(--height);
   height: var(--height);
   animation: spin 5s linear infinite;
+}
+
+.container{
+  box-sizing: border-box;
 }
 
 .labelfield,.inputfield{
@@ -74,6 +82,10 @@
   border-top-right-radius: .5rem;
   border-bottom-right-radius: .5rem;
   background-color: #dddddd;
+}
+
+#sub{
+  margin-left: 7rem;
 }
 
 @keyframes spin {
