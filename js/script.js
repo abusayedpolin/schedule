@@ -18,8 +18,8 @@ function msToTime(s) {
   return `${days}D ${hrs}H ${mins}M ${secs + 1}S left`;
 }
 
-toHrsMin = (item, start, end) => {
-  return item.time.substring(start, end);
+toHrsMin = (time, start, end) => {
+  return time.substring(start, end);
 };
 
 localTime = (hrs, min) => {
@@ -28,67 +28,75 @@ localTime = (hrs, min) => {
   return `${hrs % 12}:${min} ${ampm}`;
 };
 
-getMonthName = (point) => {
-  switch (point.getMonth()) {
-    case 0:
-      return "jan";
-    case 1:
-      return "feb";
-    case 2:
-      return "mar";
-    case 3:
-      return "apr";
-    case 4:
-      return "may";
-    case 5:
-      return "jun";
-    case 6:
-      return "jul";
-    case 7:
-      return "aug";
-    case 8:
-      return "sep";
-    case 9:
-      return "oct";
-    case 10:
-      return "nov";
-    case 11:
-      return "dec";
-  }
+let htmlElement = `<div class="row my-4 text-center">
+<div id="topic" class="my-auto textfield col-4 label1"></div>
+<div id="text" class="textfield col-4 label2"></div>
+<div id="timeLeft" class="textfield col-4 label3"></div>
+</div>`;
+
+let items = [
+  (item = {
+    index : 0,
+    sub: "VIP",
+    date: "2022-04-07",
+    time: "15:00",
+  }),
+  (item = {
+    index : 1,
+    sub: "DBMS",
+    date: "2022-04-08",
+    time: "16:30",
+  }),
+  (item = {
+    index : 2,
+    sub: "ISM",
+    date: "2022-04-06",
+    time: "14:00",
+  }),
+];
+
+add = (item)=>{
+  document.getElementById("items").innerHTML += htmlElement;
+
+  let hrs = toHrsMin(item.time, 0, 2);
+  let min = toHrsMin(item.time, 3, 5);
+  let time = localTime(hrs, min);
+
+  let d = new Date(item.date);
+  d.setHours(hrs);
+  d.setMinutes(min);
+
+  document.querySelectorAll("#topic")[item.index].innerHTML = item.sub;
+
+  document.querySelectorAll("#text")[item.index].innerHTML = time;
+
+  setInterval(() => {
+    console.log(item.index);
+    document.querySelectorAll("#timeLeft")[item.index].innerHTML = msToTime(
+    d.getTime() - new Date().getTime()
+    );
+  }, 0);
+}
+
+start = () => {
+  items.forEach((item) => {
+    add(item);
+  });
 };
 
-let item1 = {
-  sub: "",
-  date: "",
-  time: "",
-};
-
+start();
 $(document).ready(function () {
   $("#sub").click(function () {
-    item1.sub = $("#getSub").val();
-    item1.date = $("#getDate").val();
-    item1.time = $("#getTime").val();
+    let item = {};
+    item.index = items.length;
+    item.sub = $("#getSub").val();
+    item.date = $("#getDate").val();
+    item.time = $("#getTime").val();
 
-    let hrs = toHrsMin(item1, 0, 2);
-    let min = toHrsMin(item1, 3, 5);
-    item1.time = localTime(hrs, min);
-
-    if (item1.sub && item1.date && item1.time) {
+    if (item.sub && item.date && item.time) {
       document.getElementById("wrong").innerText = "";
-      let d = new Date(item1.date);
-      d.setHours(hrs);
-      d.setMinutes(min);
-      let day = d.getDate();
-      let month = getMonthName(d);
-      document.getElementById("topic").innerText = item1.sub;
-      document.getElementById(
-        "text"
-      ).innerText = `${day} ${month} at ${item1.time}`;
-      setInterval(() => {
-        document.getElementById("timeLeft").innerText = msToTime(
-          d.getTime() - new Date().getTime()
-        );
-      }, 0);
+      items.push(item);
+      add(item);
     } else {
       document.getElementById("wrong").innerText = "enter all input";
     }
