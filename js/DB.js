@@ -33,7 +33,8 @@ getDocs(colRef)
       data.push({ ...elem.data(), id: doc.id });
     });
     console.log(data);
-    data.forEach((elem) => {
+    data.forEach((elem,i) => {
+      elem.index = i;
       add(elem);
     });
   })
@@ -43,6 +44,6 @@ getDocs(colRef)
 
 export let pushData = (item) => {
   addDoc(colRef, item).then(() => {
-    document.querySelector("#wrong").innerText = "upload complete";
+    window.location.href="index.html";
   });
 };
