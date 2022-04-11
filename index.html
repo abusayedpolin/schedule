@@ -24,7 +24,10 @@
             <h1 class="m-0 fs-3 fw-bold">exam schedule</h1>
           </div>
           <div class="col-3 my-auto m-0">
-            <button class="btn bg-primary m-0">log in</button>
+            <button class="btn bg-primary m-0 login">
+              log in
+            </button>
+            <a class="btn bg-primary add hide" href="./add.html">Add</a>
           </div>
         </nav>
       </div>
@@ -33,51 +36,6 @@
         <div class="border rounded border-dark my-5 p-4">
           <div id="clock" class="fw-bold text-center"></div>
         </div>
-      </div>
-      <div class="container text-center">
-        <form action="" class="row g-4">
-          <div class="p-0 col-sm-12 col-md-12 col-lg-4">
-            <label class="labelfield" for="name">name :</label>
-            <select name="cars" id="getSub" class="inputfield text-center">
-              <option value="VIP">VIP</option>
-              <option value="VIP LAB">VIP LAB</option>
-              <option value="DBMS">DBMS</option>
-              <option value="DBMS LAB">DBMS LAB</option>
-              <option value="ALGORITHM">ALGORITHM</option>
-              <option value="ALGORITHM LAB">ALGORITHM LAB</option>
-              <option value="MACHINE LEARNING">MACHINE LEARNING</option>
-              <option value="ISM">ISM</option>
-            </select>
-          </div>
-          <div class="p-0 col-sm-12 col-md-12 col-lg-4">
-            <label class="labelfield" for="date">DATE :</label>
-            <input
-              class="inputfield text-center"
-              id="getDate"
-              type="date"
-              name=""
-            />
-          </div>
-          <div class="p-0 col-sm-12 col-md-12 col-lg-4">
-            <label class="labelfield" for="appt-time">TIME : </label>
-            <input
-              class="inputfield text-center"
-              id="getTime"
-              type="time"
-              name=""
-              value="15:00"
-            />
-          </div>
-          <div class="col-12">
-            <input
-              class="btn border bg-primary fw-bold"
-              type="submit"
-              value="Submit"
-              id="sub"
-            />
-            <div id="wrong" class="mt-3"></div>
-          </div>
-        </form>
       </div>
 
       <div class="container">
@@ -90,8 +48,6 @@
       </div>
     </div>
 
-    <div></div>
-
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -102,6 +58,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>
