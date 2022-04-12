@@ -24,14 +24,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
-
 const colRef = collection(db, "schedules");
+console.log(colRef)
 
 export let pullData = () => {
   getDocs(colRef)
-  .then((snapshop) => {
-    snapshop.docs.forEach((elem) => {
-      data.push({ ...elem.data(), id: elem.id });
+    .then((snapshop) => {
+      snapshop.docs.forEach((elem) => {
+        data.push({ ...elem.data(), id: elem.id });
       });
       data.forEach((elem, i) => {
         elem.index = i;
