@@ -15,6 +15,25 @@ let msToTime = (s) => {
   return `${days}D ${hrs}H ${mins}M ${secs + 1}S left`;
 };
 
+let getDate = (date)=>{
+  console.log(date)
+  console.log(date.substring(5,7))
+  switch (date.substring(5,7)) {
+    case "01": return `${date.substring(8,10)} jan`;
+    case "02": return `${date.substring(8,10)} feb`;
+    case "03": return `${date.substring(8,10)} mar`;
+    case "04": return `${date.substring(8,10)} apr`;
+    case "05": return `${date.substring(8,10)} may`;
+    case "06": return `${date.substring(8,10)} jun`;
+    case "07": return `${date.substring(8,10)} jul`;
+    case "08": return `${date.substring(8,10)} aug`;
+    case "09": return `${date.substring(8,10)} sep`;
+    case "10": return `${date.substring(8,10)} oct`;
+    case "11": return `${date.substring(8,10)} nov`;
+    case "12": return `${date.substring(8,10)} dec`;
+  }
+}
+
 let toHrsMin = (time, start, end) => {
   return time.substring(start, end);
 };
@@ -22,7 +41,7 @@ let toHrsMin = (time, start, end) => {
 let localTime = (date,time) => {
   let ampm;
   toHrsMin(time, 0, 2) > 12 ? (ampm = "PM") : (ampm = "AM");
-  return `${date}\nat ${toHrsMin(time, 0, 2) % 12}:${toHrsMin(time, 3, 5)} ${ampm}`;
+  return `${getDate(date)}\nat ${toHrsMin(time, 0, 2) % 12}:${toHrsMin(time, 3, 5)} ${ampm}`;
 };
 
 let setTime = (de, time) => {
@@ -62,7 +81,6 @@ export let login = () => {
 export let hideLogin = () => {
   document.querySelector(".loginInput").classList.add("hide");
   document.querySelector(".keybtn").classList.add("hide");
-  document.querySelector(".add").classList.remove("hide");
 };
 
 export let clock = ()=>{

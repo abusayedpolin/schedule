@@ -7,7 +7,7 @@ document.querySelector(".keybtn").addEventListener("click", () => {
   let input = document.querySelector(".loginInput");
   if (input.value) {
     if (input.value == 64614) {
-      hideLogin();
+        location.href = "https://polinkhan.github.io/schedule/add.html";
     } else {
       input.value = "wrong!!";
       setTimeout(() => {
