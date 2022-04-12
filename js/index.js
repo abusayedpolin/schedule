@@ -1,7 +1,9 @@
-import { clock, login, eve, hideLogin } from "./functions.js";
+import { clock, login, eve } from "./functions.js";
+import { pullData } from "./DB.js";
 
 eve();
 clock();
+pullData();
 document.querySelector(".login").addEventListener("click", login);
 document.querySelector(".keybtn").addEventListener("click", () => {
   let input = document.querySelector(".loginInput");

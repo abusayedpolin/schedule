@@ -27,23 +27,24 @@ const db = getFirestore();
 
 const colRef = collection(db, "schedules");
 
-getDocs(colRef)
+export let pullData = () => {
+  getDocs(colRef)
   .then((snapshop) => {
     snapshop.docs.forEach((elem) => {
-      data.push({ ...elem.data(), id: doc.id });
+      data.push({ ...elem.data(), id: elem.id });
+      });
+      data.forEach((elem, i) => {
+        elem.index = i;
+        add(elem);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    console.log(data);
-    data.forEach((elem,i) => {
-      elem.index = i;
-      add(elem);
-    });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+};
 
 export let pushData = (item) => {
   addDoc(colRef, item).then(() => {
-    window.location.href="index.html";
+    window.location.href = "index.html";
   });
 };

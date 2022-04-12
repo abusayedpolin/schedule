@@ -1,7 +1,7 @@
-import {data,pushData} from './DB.js'
+import {pushData} from './DB.js'
 
 let hrs, min, ms;
-let htmlElement = `<div class="row my-4 text-center"><div id="topic" class="my-auto textfield col-4 label1"></div><div id="text" class="textfield col-4 label2"></div><div id="timeLeft" class="textfield col-4 label3"></div></div>`;
+let htmlElement = `<div class="row my-4 text-center"><div id="topic" class="my-auto textfield col-4 label1"></div><div id="text" class="textfield col-4 label2 "></div><div id="timeLeft" class="textfield col-4 label3"></div></div>`;
 
 let msToTime = (s) => {
   let ms = s % 1000;
@@ -16,8 +16,6 @@ let msToTime = (s) => {
 };
 
 let getDate = (date)=>{
-  console.log(date)
-  console.log(date.substring(5,7))
   switch (date.substring(5,7)) {
     case "01": return `${date.substring(8,10)} jan`;
     case "02": return `${date.substring(8,10)} feb`;
@@ -41,7 +39,7 @@ let toHrsMin = (time, start, end) => {
 let localTime = (date,time) => {
   let ampm;
   toHrsMin(time, 0, 2) > 12 ? (ampm = "PM") : (ampm = "AM");
-  return `${getDate(date)}\nat ${toHrsMin(time, 0, 2) % 12}:${toHrsMin(time, 3, 5)} ${ampm}`;
+  return `[ .. ${getDate(date)} .. ] ${toHrsMin(time, 0, 2) % 12}:${toHrsMin(time, 3, 5)} ${ampm}`;
 };
 
 let setTime = (de, time) => {
@@ -56,12 +54,17 @@ export let input = ()=>{
   const form = document.forms["userInput"];
 
   if (form["_date"].value) {
-    let item = {};
-
-    for (let i = 0; i < form.length - 1; i++) {
-      item[form[i].name] = form[i].value;
+    console.log(new Date(form["_date"].value).getTime(),new Date().getTime())
+    if(new Date(form["_date"].value).getTime() > new Date().getTime()){
+      let item = {};
+      for (let i = 0; i < form.length - 1; i++) {
+        item[form[i].name] = form[i].value;
+      }
+      pushData(item);
     }
-    pushData(item);
+    else {
+      console.log("enter correct date")
+    }
   }
 
 };
