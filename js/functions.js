@@ -19,10 +19,10 @@ let toHrsMin = (time, start, end) => {
   return time.substring(start, end);
 };
 
-let localTime = (time) => {
+let localTime = (date,time) => {
   let ampm;
   toHrsMin(time, 0, 2) > 12 ? (ampm = "PM") : (ampm = "AM");
-  return `${toHrsMin(time, 0, 2) % 12}:${toHrsMin(time, 3, 5)} ${ampm}`;
+  return `${date}\nat ${toHrsMin(time, 0, 2) % 12}:${toHrsMin(time, 3, 5)} ${ampm}`;
 };
 
 let setTime = (de, time) => {
@@ -37,7 +37,7 @@ export let input = ()=>{
   const form = document.forms["userInput"];
 
   if (form["_date"].value) {
-    let item = { index: data.length };
+    let item = {};
 
     for (let i = 0; i < form.length - 1; i++) {
       item[form[i].name] = form[i].value;
@@ -55,6 +55,13 @@ export let eve = () => {
 
 export let login = () => {
   document.querySelector(".login").classList.add("hide");
+  document.querySelector(".loginInput").classList.remove("hide");
+  document.querySelector(".keybtn").classList.remove("hide");
+};
+
+export let hideLogin = () => {
+  document.querySelector(".loginInput").classList.add("hide");
+  document.querySelector(".keybtn").classList.add("hide");
   document.querySelector(".add").classList.remove("hide");
 };
 
@@ -71,7 +78,7 @@ export let add = (item) => {
     d.setTime(setTime(d, item._time));
 
     document.querySelectorAll("#topic")[item.index].innerHTML = item._name;
-    document.querySelectorAll("#text")[item.index].innerHTML = localTime(item._time);
+    document.querySelectorAll("#text")[item.index].innerHTML = localTime(item._date,item._time);
   
     setInterval(() => {
       document.querySelectorAll("#timeLeft")[item.index].innerHTML = msToTime(

@@ -17,7 +17,6 @@ body{
 }
 
 #clock {
-  font-size: 2rem;
   background: -webkit-linear-gradient(cadetblue, lightcoral);
   background-clip: border-box;
   -webkit-background-clip: text;
@@ -43,10 +42,6 @@ body{
 
 .labelfield,.inputfield{
   font-size: 1.2rem;
-}
-
-.text,.timeLeft{
-  font-size: 0.5rem;
 }
 
 .labelfield{
@@ -94,6 +89,13 @@ body{
 
 .hide{
   display: none;
+}
+
+/* .loginForm{
+
+} */
+.loginInput{
+  width: 100px;
 }
 
 @keyframes spin {

@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="container text-center">
-      <form action="" class="row g-4" name="userInput">
+    <div class="my-5 container text-center">
+      <form action="" class="row g-4 mx-3 py-4 border border-dark" name="userInput">
         <div class="p-0 col-sm-12 col-md-12 col-lg-4">
           <label class="labelfield" for="name">name :</label>
           <select class="inputfield text-center" name="_name">
@@ -47,7 +47,11 @@
             value="15:00"
           />
         </div>
-        <div class="col-12">
+        <div class="col-6 p-0 pt-2">
+          <a href="https://polinkhan.github.io/schedule/" class="btn border bg-danger fw-bold"> Go Back </a>
+          <div id="wrong" class="mt-3"></div>
+        </div>
+        <div class="col-6 p-0 pt-2">
           <input
             class="btn border bg-primary fw-bold submit"
             type="submit"
