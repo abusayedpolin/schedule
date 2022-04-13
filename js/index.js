@@ -35,7 +35,7 @@ document.querySelector(".login").addEventListener("click", login);
 document.querySelector(".keybtn").addEventListener("click", () => {
   let input = document.querySelector(".loginInput");
   if (input.value) {
-    if (input.value == 64614) {
+    if (input.value == 12345) {
       location.href = "https://polinkhan.github.io/schedule/add.html";
     } else {
       input.value = "wrong!!";
@@ -45,3 +45,4 @@ document.querySelector(".keybtn").addEventListener("click", () => {
     }
   }
 });
+

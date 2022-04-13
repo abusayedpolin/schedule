@@ -79,6 +79,10 @@ body{
   background-color: #dddddd;
 }
 
+.bg-label{
+  background-color:#e3e3e3;
+}
+
 #sub{
   margin-left: 7rem;
 }

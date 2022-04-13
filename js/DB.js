@@ -38,7 +38,20 @@ getDocs(colRef)
 export let pullData = () => data;
 
 export let pushData = (item) => {
+  let id = document.querySelector("#status");
+  id.innerHTML = "Upload in progess!!";
   addDoc(colRef, item).then(() => {
-    window.location.href = "index.html";
+    id.innerHTML = "Upload Complete!!";
+    setTimeout(() => {
+      id.innerHTML = "";
+    }, 1000);
+  });
+};
+
+export let deleteData = (point, id) => {
+  const docRef = doc(db, "schedules", id);
+  deleteDoc(docRef).then(() => {
+    point.parentNode.classList.remove("row");
+    point.parentNode.innerHTML = "delete done";
   });
 };
