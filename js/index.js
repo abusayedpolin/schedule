@@ -7,7 +7,9 @@ clock();
 setTimeout(() => {
   let data = pullData();
   let sortData = [];
-
+  if(data.length == 0){
+    document.querySelector(".error").classList.remove("hide");
+  }
   while (data.length > 0) {
     let index = -1;
     let date = new Date(data[0]["_date"]);
@@ -45,4 +47,3 @@ document.querySelector(".keybtn").addEventListener("click", () => {
     }
   }
 });
-
