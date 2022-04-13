@@ -1,4 +1,4 @@
-import { add } from "./functions.js";
+import { add,setTime } from "./functions.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import {
   getFirestore,
@@ -30,6 +30,28 @@ getDocs(colRef)
   .then((snapshop) => {
     snapshop.docs.forEach((elem) => {
       data.push({ ...elem.data(), id: elem.id });
+    });
+    let sortData = [];
+    while (data.length > 0) {
+      let index = -1;
+      let date = new Date(data[0]["_date"]);
+      date.setTime(setTime(date, data[0]["_time"]));
+
+      data.forEach(function (elem, i) {
+        let cdate = new Date(elem["_date"]);
+        cdate.setTime(setTime(cdate, elem["_time"]));
+
+        if (cdate.getTime() <= date.getTime()) {
+          date = cdate;
+          index = i;
+        }
+      });
+      sortData.push(data[index]);
+      data.splice(index, 1);
+    }
+    sortData.forEach(function (elem, i) {
+      elem.index = i;
+      add(elem);
     });
   })
   .catch((err) => {
