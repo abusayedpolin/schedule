@@ -42,7 +42,7 @@ let localTime = (date,time) => {
   return `[ .. ${getDate(date)} .. ] ${toHrsMin(time, 0, 2) % 12}:${toHrsMin(time, 3, 5)} ${ampm}`;
 };
 
-let setTime = (de, time) => {
+export let setTime = (de, time) => {
   hrs = toHrsMin(time, 0, 2) * 60;
   min = toHrsMin(time, 3, 5) * 1;
   ms = (hrs + min) * 60000;
